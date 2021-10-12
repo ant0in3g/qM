@@ -1,0 +1,25 @@
+\tikzset{node style ge/.style={circle}}
+
+\begin{tikzpicture}[baseline=(A.center),font=\normalsize]
+
+% les matrices
+\matrix (A) [%
+matrix of math nodes,%
+nodes = {node style ge},%
+column sep=0.12em,%
+row sep= 0.12em,%
+inner sep = 0.12em,%
+left delimiter = |,%
+right delimiter = |]%
+{ a_{11} & a_{12} & a_{13} \\
+a_{21} & a_{22} & a_{23} \\
+a_{31} & a_{32} & a_{33} \\
+};%
+
+%\draw[opacity=.3,line width=1em, color=black] (A-2-1.west) to (A-2-3.east);
+\draw[opacity=.3,line width=1.8em, color=tangelo] (A-1-2.north) to (A-3-2.south);
+
+\node[left,outer sep=2.5em] at (A-2-1.east) {$\det(A) =$} ;%
+\node[right,outer sep=2.5em] at (A-2-3.west) {$= a_{1 \ {\color{tangelo}2}} \ \ C_{1 \ {\color{tangelo}2}} + a_{2 \ {\color{tangelo}2}} \ \ C_{2 \ {\color{tangelo}2}} + a_{3 \ {\color{tangelo}2}} \ \ C_{3 \ {\color{tangelo}2}}$};%
+
+\end{tikzpicture}

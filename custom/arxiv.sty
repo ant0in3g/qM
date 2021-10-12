@@ -1,0 +1,102 @@
+\ProvidesPackage{../arXiv}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\renewcommand{\familydefault}{\sfdefault}
+
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, linkcolor=cadmiumgreen, urlcolor=cadmiumgreen,
+pdftitle={Exercices - S4.}, pdfauthor={antoine}}
+
+\geometry{
+  a4paper,
+  left=18mm,
+  right=20mm,
+  top=20mm,
+  bottom=18mm,
+}
+
+%----- Structure des exercices ------
+
+\newcommand{\exercice}[1]{\video{0}}
+\newcommand{\finexercice}{}
+\newcommand{\noindication}{}
+\newcommand{\nocorrection}{}
+
+\newcounter{exo}
+\newcommand{\enonce}[2]{\refstepcounter{exo}\hypertarget{exo7:#1}{}\label{exo7:#1}{\bf Exercices \arabic{exo}}\ \  #2\vspace{1mm}\hrule\vspace{1mm}}
+
+\newcommand{\finenonce}[1]{
+\ifthenelse{\equal{\ref{ind7:#1}}{\ref{bidon}}\and\equal{\ref{cor7:#1}}{\ref{bidon}}}{}{\par{\footnotesize
+\ifthenelse{\equal{\ref{ind7:#1}}{\ref{bidon}}}{}{\hyperlink{ind7:#1}{\textbf{Indication} $\blacktriangledown$}\qquad}
+\ifthenelse{\equal{\color{cadmiumgreen}\ref{cor7:#1}}{\color{cadmiumgreen}\ref{bidon}}}{}{\hyperlink{cor7:#1}{\color{cadmiumgreen}\textbf{Correction} $\blacktriangledown$}}}}
+\ifthenelse{\equal{\myvideo}{0}}{}{{\footnotesize\qquad\href{\myvideo}{\color{cadmiumgreen}\textbf{Vidéo} $\blacksquare$}}}
+\hfill{\scriptsize\texttt{[#1]}}\vspace{1mm}
+\hrule
+\vspace*{7mm}}
+
+\newcommand{\indication}[1]{\hypertarget{ind7:#1}{}\label{ind7:#1}{\bf Indication pour \hyperlink{exo7:#1}{\color{cadmiumgreen}l'exercice \ref{exo7:#1} $\blacktriangle$}}\vspace{1mm}\hrule\vspace{1mm}}
+\newcommand{\finindication}{\vspace{1mm}\hrule\vspace*{7mm}}
+\newcommand{\correction}[1]{\hypertarget{cor7:#1}{}\label{cor7:#1}{\bf Correction de \hyperlink{exo7:#1}{{\color{cadmiumgreen}l'exercice \ref{exo7:#1} $\blacktriangle$}}}\vspace{1mm}\hrule\vspace{1mm}}
+\newcommand{\fincorrection}{\vspace{1mm}\hrule\vspace*{7mm}}
+
+\newcommand{\finenonces}{\newpage}
+\newcommand{\finindications}{\newpage}
+
+
+\newcommand{\fiche}[1]{} \newcommand{\finfiche}{}
+%\newcommand{\titre}[1]{\centerline{\large \bf #1}}
+\newcommand{\addcommand}[1]{}
+
+% variable myvideo : 0 no video, otherwise youtube reference
+\newcommand{\video}[1]{\def\myvideo{#1}}
+
+%----- Presentation ------
+
+\setlength{\parindent}{0cm}
+
+\newcommand{\LogoExoSept}[1]{
+\includegraphics[scale=0.08]{figures/estaca-isae.pdf}
+}
+
+
+\hypersetup{
+  pdftoolbar=true,
+  pdfmenubar=true,
+  pdffitwindow=true,
+  pdfstartview={},
+  pdftitle={mATh},
+  pdfauthor={Antoine Géré},
+  pdfsubject={},
+  pdfcreator={LaTeX},
+  pdfproducer={pdfTex},
+  pdfkeywords={},
+  pdfnewwindow=true,
+  colorlinks=true,
+  linkcolor=hypercolor,
+  urlcolor=hypercolor,
+  citecolor=hypercolor,
+  filecolor=hypercolor,
+}
+
+
+
+% titre
+\newcommand{\titre}[1]{%
+\vspace*{-8ex} \hfill \hspace*{1.5cm} %\hypersetup{linkcolor=cadmiumgreen, urlcolor=cadmiumgreen}
+\href{https://www.estaca.fr/}{\LogoExoSept{3}}  \newline 
+\hypersetup{linkcolor=cadmiumgreen, urlcolor=cadmiumgreen}  {\Large \bf #1} \newline
+ \rule{12cm}{1mm} \vspace*{2ex}}
+
+%----- Commandes supplementaires ------
+
+\pgfplotsset{compat=1.17}
+
+%----- Colors ---------------
+\definecolor{amaranth}{rgb}{0.9, 0.17, 0.31}
+\definecolor{blue(pigment)}{rgb}{0.2, 0.2, 0.6}
+\definecolor{caribbeangreen}{rgb}{0.0, 0.8, 0.6}
+\definecolor{brightturquoise}{rgb}{0.03, 0.91, 0.87}
+\definecolor{burgundy}{rgb}{0.5, 0.0, 0.13}
+\definecolor{deepskyblue}{rgb}{0.0, 0.75, 1.0}
+\definecolor{ferngreen}{rgb}{0.31, 0.47, 0.26}
+\definecolor{cadmiumgreen}{rgb}{0.0, 0.42, 0.24}

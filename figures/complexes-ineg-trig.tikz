@@ -1,0 +1,28 @@
+\begin{tikzpicture}[scale=1,cap=round]
+  % Styles
+  \tikzstyle{axes}=[]
+  \tikzstyle{important line}=[very thick]
+  \tikzstyle{information text}=[rounded corners,fill=red!10,inner sep=1ex]
+
+  % Axes + vecteurs unitaires
+  \draw[->] (-1,0) -- (14,0);
+  \draw[->] (0,0) -- (2,0) node[below] {$\vec{u}$};
+  \draw[->] (0,-1) -- (0,7);
+  \draw[->] (0,0) -- (0,2) node[left] {$\vec{v}$};
+  \filldraw[black] (0,0) circle (1pt) node[above left]{$O$};
+
+  % M(z)
+  \draw[black,->] (0,0) -- (3,4);
+  \filldraw[black] (3,4) circle (1pt) node[above left]{$M(z)$};
+
+  % M'(z')
+  \draw[black,->] (0,0) -- (10,2);
+  \filldraw[black] (10,2) circle (1pt) node[above left]{$M^\prime(z^\prime)$};
+
+  % M1(z1)
+  \draw[red,->,dashed] (0,0) -- (13,6);
+  \draw[-,dashed] (10,2) -- (13,6);
+  \draw[-,dashed] (3,4) -- (13,6);
+  \filldraw[red] (13,6) circle (1pt) node[above right]{$M_1(z+z^\prime)$};
+  \filldraw[red] (7,3) circle (0pt) node[above left]{$\abs{z+z^\prime}$};
+\end{tikzpicture}

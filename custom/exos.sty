@@ -1,0 +1,78 @@
+\ProvidesPackage{../lecture}
+
+
+\usetikzlibrary{matrix,arrows,decorations.pathmorphing}
+
+\newcommand{\myunit}{1 cm}
+\tikzset{
+    node style sp/.style={draw,circle,minimum size=\myunit},
+    node style ge/.style={circle,minimum size=\myunit},
+    arrow style mul/.style={draw,sloped,midway,fill=white},
+    arrow style plus/.style={midway,sloped,fill=white},
+}
+
+
+%----- Structure des exercices ------
+
+\newcommand{\exercice}[1]{\video{0}}
+\newcommand{\finexercice}{}
+\newcommand{\noindication}{}
+\newcommand{\nocorrection}{}
+
+\newcounter{exo}[chapter]
+
+\newcommand{\enonce}[2]{%
+  \refstepcounter{exo}%
+  \hypertarget{exo7:#1}{}%
+  \label{exo7:#1}{%
+    {\bf\color{darkcoral}Exercice \arabic{exo}} \ \ \color{darkcoral}#2}
+    \vspace{2mm}\par%
+  }%
+
+\newcommand{\finenonce}[1]{
+    \ifthenelse{%
+      \equal{\ref{ind7:#1}}{\ref{bidon}}%
+      \and%
+      \equal{\ref{cor7:#1}}{\ref{bidon}}}{}{\par{\vspace*{8pt}\footnotesize
+    %
+    %
+    \ifthenelse{%
+      \equal{\ref{ind7:#1}}{\ref{bidon}}}{}{%
+        \hyperlink{ind7:#1}{%
+          \color{titlepagecolor}\textbf{Indication} $\blacktriangledown$}\qquad%
+        }%
+    %
+    %
+    \ifthenelse{\equal{\color{cadmiumgreen}\ref{cor7:#1}}{\color{cadmiumgreen}\ref{bidon}}}{}{\hyperlink{cor7:#1}{\color{cadmiumgreen}\textbf{Correction} $\blacktriangledown$}}}}%
+    %
+    %
+    \ifthenelse{%
+      \equal{\myvideo}{0}}{}{{%
+        \footnotesize\qquad%
+        \href{\myvideo}{\color{gold(metallic)}\textbf{Vidéo} $\blacksquare$}%
+      }}%
+      \hfill{%
+        \scriptsize\texttt{[#1]}}%
+        \vspace{2mm}%
+        \hrule%
+        \vspace*{7mm}%
+      }%
+
+\newcommand{\indication}[1]{\hypertarget{ind7:#1}{}\label{ind7:#1}{\bf \color{titlepagecolor} Indication pour \hyperlink{exo7:#1}{\color{titlepagecolor}l'exercice \ref{exo7:#1} $\blacktriangle$}}\vspace{2mm}\par}
+
+\newcommand{\finindication}{\vspace{1mm}\hrule\vspace*{7mm}}
+
+\newcommand{\correction}[1]{\hypertarget{cor7:#1}{}\label{cor7:#1}{\bf \color{cadmiumgreen} Correction de \hyperlink{exo7:#1}{{\color{cadmiumgreen}l'exercice \ref{exo7:#1} $\blacktriangle$}}}\vspace{2mm}\par}
+
+\newcommand{\fincorrection}{\vspace{2mm}\hrule\vspace*{7mm}}
+
+\newcommand{\finenonces}{\newpage}
+
+\newcommand{\finindications}{\newpage}
+
+\newcommand{\fiche}[1]{} \newcommand{\finfiche}{}
+%\newcommand{\titre}[1]{\centerline{\large \bf #1}}
+\newcommand{\addcommand}[1]{}
+
+% variable myvideo : 0 no video, otherwise youtube reference
+\newcommand{\video}[1]{\def\myvideo{#1}}

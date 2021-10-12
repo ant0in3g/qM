@@ -1,0 +1,210 @@
+\ProvidesPackage{../lecture}
+
+%%%%%%%% Definition %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcounter{defi}[chapter]\setcounter{defi}{0}
+\renewcommand{\thedefi}{\arabic{defi}}
+\newenvironment{defi}[2][]{%
+\refstepcounter{defi}%
+\ifstrempty{#1}%
+{\mdfsetup{%
+frametitle={%
+\tikz[baseline=(current bounding box.east),outer sep=0pt]
+\node[anchor=east,rectangle,fill=amber]
+{\strut \ Definition~\thedefi \ \ };}}
+}%
+{\mdfsetup{%
+frametitle={%
+\tikz[baseline=(current bounding box.east),outer sep=0pt]
+\node[anchor=east,rectangle,fill=amber]
+{\strut \ Definition~\thedefi \ : \ ~#1 \ };}}%
+}%
+\mdfsetup{innertopmargin=1pt,linecolor=amber,%
+linewidth=2pt,topline=true,%
+frametitleaboveskip=\dimexpr-\ht\strutbox\relax
+}
+\begin{mdframed}[]\relax%
+}{\end{mdframed}}
+
+%%%%%%%% Proposition %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcounter{prop}[chapter]\setcounter{prop}{0}
+\renewcommand{\theprop}{\arabic{prop}}
+\newenvironment{prop}[2][]{%
+\refstepcounter{prop}%
+\ifstrempty{#1}%
+{\mdfsetup{%
+frametitle={%
+\tikz[baseline=(current bounding box.east),outer sep=0pt]
+\node[anchor=east,rectangle,fill=robineggblue]
+{\strut \ Proposition~\theprop \ \ };}}
+}%
+{\mdfsetup{%
+frametitle={%
+\tikz[baseline=(current bounding box.east),outer sep=0pt]
+\node[anchor=east,rectangle,fill=robineggblue]
+{\strut \ Proposition~\theprop \ : \ ~#1 \ };}}%
+}%
+\mdfsetup{innertopmargin=1pt,linecolor=robineggblue,%
+linewidth=2pt,topline=true,%
+frametitleaboveskip=\dimexpr-\ht\strutbox\relax
+}
+\begin{mdframed}[]\relax%
+}{\end{mdframed}}
+
+%%%%%%%% Theorem %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcounter{theo}[chapter]\setcounter{theo}{0}
+\renewcommand{\thetheo}{\arabic{theo}}
+\newenvironment{theo}[2][]{%
+\refstepcounter{theo}%
+\ifstrempty{#1}%
+{\mdfsetup{%
+frametitle={%
+\tikz[baseline=(current bounding box.east),outer sep=0pt]
+\node[anchor=east,rectangle,fill=brilliantrose]
+{\strut \ Théorème~\thetheo \ \ };}}
+}%
+{\mdfsetup{%
+frametitle={%
+\tikz[baseline=(current bounding box.east),outer sep=0pt]
+\node[anchor=east,rectangle,fill=brilliantrose]
+{\strut \ Théorème ~\thetheo \ : \ ~#1 \ };}}%
+}%
+\mdfsetup{innertopmargin=1pt,linecolor=brilliantrose,%
+linewidth=2pt,topline=true,%
+frametitleaboveskip=\dimexpr-\ht\strutbox\relax
+}
+\begin{mdframed}[]\relax%
+}{\end{mdframed}}
+
+%%%%%%%% Lemme %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcounter{lem}[chapter]\setcounter{lem}{0}
+\renewcommand{\thelem}{\arabic{lem}}
+\newenvironment{lem}[2][]{%
+\refstepcounter{lem}%
+\ifstrempty{#1}%
+{\mdfsetup{%
+frametitle={%
+\tikz[baseline=(current bounding box.east),outer sep=0pt]
+\node[anchor=east,rectangle,fill=atomictangerine]
+{\strut \ Lemme~\thelem \ \ };}}
+}%
+{\mdfsetup{%
+frametitle={%
+\tikz[baseline=(current bounding box.east),outer sep=0pt]
+\node[anchor=east,rectangle,fill=atomictangerine]
+{\strut \ Lemme~\thelem \ : \ ~#1 \ };}}%
+}%
+\mdfsetup{innertopmargin=1pt,linecolor=atomictangerine,%
+linewidth=2pt,topline=true,%
+frametitleaboveskip=\dimexpr-\ht\strutbox\relax
+}
+\begin{mdframed}[]\relax%
+}{\end{mdframed}}
+
+%%%%%%%% Remarque %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcounter{rmq}[chapter]\setcounter{rmq}{0}
+\renewcommand{\thermq}{\arabic{rmq}}
+\newenvironment{rmq}[2][]{%
+\refstepcounter{rmq}%
+\ifstrempty{#1}%
+{\mdfsetup{%
+frametitle={%
+\tikz[baseline=(current bounding box.east),outer sep=0pt]
+\node[anchor=east,rectangle,fill=anti-flashwhite]
+{\strut \ Remarque~\thermq \ \ };}}
+}%
+{\mdfsetup{%
+frametitle={%
+\tikz[baseline=(current bounding box.east),outer sep=0pt]
+\node[anchor=east,rectangle,fill=anti-flashwhite]
+{\strut \ Remarque~\thermq \ : \ ~#1 \ };}}%
+}%
+\mdfsetup{innertopmargin=1pt,linecolor=anti-flashwhite,%
+linewidth=2pt,topline=true,%
+frametitleaboveskip=\dimexpr-\ht\strutbox\relax
+}
+\begin{mdframed}[]\relax%
+}{\end{mdframed}}
+
+%%%%%%%% Exemple %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcounter{ex}[chapter]\setcounter{ex}{0}
+\renewcommand{\theex}{\arabic{ex}}
+\newenvironment{ex}[2][]{%
+\refstepcounter{ex}%
+\ifstrempty{#1}%
+{\mdfsetup{%
+frametitle={%
+\tikz[baseline=(current bounding box.east),outer sep=0pt]
+\node[anchor=east,rectangle,fill=pistachio]
+{\strut \ Exemple~\theex \ \ };}}
+}%
+{\mdfsetup{%
+frametitle={%
+\tikz[baseline=(current bounding box.east),outer sep=0pt]
+\node[anchor=east,rectangle,pistachio]
+{\strut \ Exemple~\theex \ : \ ~#1 \ };}}%
+}%
+\mdfsetup{innertopmargin=1pt,linecolor=pistachio,%
+linewidth=2pt,topline=true,%
+frametitleaboveskip=\dimexpr-\ht\strutbox\relax
+}
+\begin{mdframed}[]\relax%
+}{\end{mdframed}}
+
+%%%%%%%% Preuve %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcounter{demo}[chapter]\setcounter{demo}{0}
+\renewcommand{\thedemo}{\arabic{demo}}
+\newenvironment{demo}[2][]{%
+\refstepcounter{demo}%
+\ifstrempty{#1}%
+{\mdfsetup{%
+frametitle={%
+\tikz[baseline=(current bounding box.east),outer sep=0pt]
+\node[anchor=east,rectangle,fill=robineggblue]
+{\strut \ Preuve~\thedemo \ \ };}}
+}%
+{\mdfsetup{%
+frametitle={%
+\tikz[baseline=(current bounding box.east),outer sep=0pt]
+\node[anchor=east,rectangle,fill=robineggblue]
+{\strut \ Preuve~\thedemo \ : \ ~#1 \ };}}%
+}%
+\mdfsetup{innertopmargin=1pt,linecolor=robineggblue,%
+linewidth=2pt,topline=true,%
+frametitleaboveskip=\dimexpr-\ht\strutbox\relax
+}
+\begin{mdframed}[]\relax%
+}{\qed\end{mdframed}}
+
+
+%%%%%%%% Propriete %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcounter{propri}[chapter]\setcounter{propri}{0}
+\renewcommand{\thepropri}{\arabic{propri}}
+\newenvironment{propri}[2][]{%
+\refstepcounter{propri}%
+\ifstrempty{#1}%
+{\mdfsetup{%
+frametitle={%
+\tikz[baseline=(current bounding box.east),outer sep=0pt]
+\node[anchor=east,rectangle,fill=azure(colorwheel)]
+{\strut \ Propriété~\thepropri \ \ };}}
+}%
+{\mdfsetup{%
+frametitle={%
+\tikz[baseline=(current bounding box.east),outer sep=0pt]
+\node[anchor=east,rectangle,fill=azure(colorwheel)]
+{\strut \ Propriété~\thepropri \ : \ ~#1 \ };}}%
+}%
+\mdfsetup{innertopmargin=1pt,linecolor=azure(colorwheel),%
+linewidth=2pt,topline=true,%
+frametitleaboveskip=\dimexpr-\ht\strutbox\relax
+}
+\begin{mdframed}[]\relax%
+}{\end{mdframed}}

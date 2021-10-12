@@ -1,0 +1,306 @@
+\ProvidesPackage{exam}
+
+%%%%%%%%%%%
+\usepackage[export]{adjustbox}
+\usepackage{amscd}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsxtra}
+\usepackage{amsthm}
+\usepackage{array}
+
+%%%%%%%%%%%
+\usepackage{background}
+
+%%%%%%%%%%%
+\usepackage{caption}
+\usepackage{cite}
+\usepackage{color}
+
+%%%%%%%%%%%
+\usepackage{enumitem}
+
+%%%%%%%%%%%
+\usepackage{fancyhdr}
+
+%%%%%%%%%%%
+\usepackage{geometry}
+
+%%%%%%%%%%%
+\usepackage{hyperref}
+
+%%%%%%%%%%%
+\usepackage{ifthen}
+
+%%%%%%%%%%%
+\usepackage{lastpage}
+\usepackage{lipsum}
+
+%%%%%%%%%%%
+\usepackage{mathpazo}
+\usepackage[framemethod=tikz]{mdframed}
+\usepackage{multicol}
+
+%%%%%%%%%%%
+\usepackage{pgf}
+\usepackage{pdfpages}
+\usepackage{pgfplots}
+\usepackage{pstricks-add}
+
+%%%%%%%%%%%
+\usepackage{setspace}
+\usepackage{subcaption}
+\usepackage{subfiles}
+
+%%%%%%%%%%%
+\usepackage{tcolorbox}
+\usepackage{titlesec}
+\usepackage{tikz}
+\usepackage{tkz-tab}
+
+%%%%%%%%%%%
+\usepackage{verbatim}
+
+%%%%%%%%%%%
+\usepackage{wasysym}
+\usepackage{wrapfig}
+
+%%%%%%%%%%%
+\usepackage{xcolor}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\geometry{
+  a4paper,
+  left=20mm,
+  right=20mm,
+  top=30mm,
+  bottom=20mm,
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcounter{mt}
+\setlength\parindent{0pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\finexam}{\thispagestyle{fancy}\rfoot{Fin}}
+\newcommand{\YUGE}{\fontsize{24}{29}\selectfont}
+
+\newcommand\promo[1]{\renewcommand\@promo{#1}}
+\newcommand\@promo{}
+\newcommand\prof[1]{\renewcommand\@prof{#1}}
+\newcommand\@prof{}
+\newcommand\duree[1]{\renewcommand\@duree{#1}}
+\newcommand\@duree{}
+
+\newcommand\DocCalc[1]{\renewcommand\@DocCalc{\DocCalcvalue{#1}}}
+\newcommand\@DocCalc{}
+\newcommand{\DocCalcvalue}[1]
+{
+  \ifthenelse{\equal{#1}{1}}{
+  \begin{center}
+    \begin{tabular}{llll}
+      Document(s) autorisé(s) : & $\Box$ Oui & $\XBox$ Non\\[5pt]
+      Calculatrice autorisée :  & $\Box$ Oui & $\XBox$ Non
+    \end{tabular}
+  \end{center}
+  }{}
+  \ifthenelse{\equal{#1}{2}}{
+  \begin{center}
+    \begin{tabular}{llll}
+      Document(s) autorisé(s) : & $\Box$ Oui & $\XBox$ Non\\[5pt]
+      Calculatrice autorisée :  & $\XBox$ Oui & $\Box$ Non
+    \end{tabular}
+  \end{center}
+  }{}
+  \ifthenelse{\equal{#1}{3}}{
+  \begin{center}
+    \begin{tabular}{llll}
+      Document(s) autorisé(s) : & $\XBox$ Oui & $\Box$ Non\\[5pt]
+      Calculatrice autorisée :  & $\Box$ Oui & $\XBox$ Non
+    \end{tabular}
+  \end{center}
+  }{}
+  \ifthenelse{\equal{#1}{4}}{
+  \begin{center}
+    \begin{tabular}{llll}
+      Document(s) autorisé(s) : & $\XBox$ Oui & $\Box$ Non\\[5pt]
+      Calculatrice autorisée :  & $\XBox$ Oui & $\Box$ Non
+    \end{tabular}
+  \end{center}
+  }{}
+}
+
+\newcommand\rmq[1]{\renewcommand\@rmq{#1}}
+\newcommand\@rmq{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\makeatletter
+\renewcommand\maketitle{
+{%
+\vspace*{10pt}
+%
+{\YUGE\bfseries\@title}\\[10pt]
+{\Large\sffamily\@date}\\[18pt]
+{\Large\sffamily\@promo}\\[10pt]
+%
+}
+\begin{tcolorbox}[colback=white,colframe=rossocorsa]
+
+Professeur(s) : \@prof \par %Antoine Géré \par
+
+\bigskip
+
+\'Etudiant (Nom, Prénom) : \dotfill \par
+\medskip
+Groupe : \dotfill \par
+\medskip
+Numéro d'étudiant : \dotfill \par
+
+\bigskip
+
+Durée de l'épreuve : \@duree \par %2 heures, de 14h00 à 16h00 (tiers-temps, de 14h00 à 16h40).\par
+
+\bigskip\
+
+\@DocCalc
+
+\bigskip
+
+\textit{Remarque :}
+
+\medskip
+
+\@rmq%
+%Il sera tenu compte de la propreté de votre copie, ainsi que de la clarté et de la qualité de la rédaction et du raisonement.
+\end{tcolorbox}
+
+\vspace*{90pt}
+
+\begin{center}
+\begin{tcolorbox}[colback=white,colframe=rossocorsa,title={\large Note et commentaires},width=300pt,height=100pt]
+\
+\end{tcolorbox}
+\end{center}
+
+\newpage
+}
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\cfoot{\thepage \ - \pageref{LastPage}}
+\fancyfoot[RO]{{\normalsize \sffamily Tournez la page S.V.P.}} %Odd Pages
+\fancyfoot[RE]{} % Even Pages
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usetikzlibrary{matrix,arrows,decorations.pathmorphing}
+\newcommand{\myunit}{1 cm}
+\tikzset{
+    node style sp/.style={draw,circle,minimum size=\myunit},
+    node style ge/.style={circle,minimum size=\myunit},
+    arrow style mul/.style={draw,sloped,midway,fill=white},
+    arrow style plus/.style={midway,sloped,fill=white},
+}
+%----- Structure des exercices ------
+\newcommand{\exercice}[1]{\video{0}}
+\newcommand{\finexercice}{}
+\newcommand{\noindication}{}
+\newcommand{\nocorrection}{}
+\newcounter{exo}[section]
+\newcommand{\enonce}[2]{%
+  \refstepcounter{exo}%
+  \hypertarget{exo7:#1}{}%
+  \label{exo7:#1}{%
+    {\bf\color{darkcoral}\Large Exercice \arabic{exo}} \ \ \color{darkcoral}#2}
+    \vspace{2mm}\par%
+  }%
+\newcommand{\finenonce}[1]{
+    \ifthenelse{%
+      \equal{\ref{ind7:#1}}{\ref{bidon}}%
+      \and%
+      \equal{\ref{cor7:#1}}{\ref{bidon}}}{}{\par{\vspace*{8pt}\footnotesize
+    %
+    %
+    \ifthenelse{%
+      \equal{\ref{ind7:#1}}{\ref{bidon}}}{}{%
+        \hyperlink{ind7:#1}{%
+          \color{titlepagecolor}\textbf{Indication} $\blacktriangledown$}\qquad%
+        }%
+    %
+    %
+    \ifthenelse{\equal{\color{cadmiumgreen}\ref{cor7:#1}}{\color{cadmiumgreen}\ref{bidon}}}{}{\hyperlink{cor7:#1}{\color{cadmiumgreen}\textbf{Correction} $\blacktriangledown$}}}}%
+    %
+    %
+    \ifthenelse{%
+      \equal{\myvideo}{0}}{}{{%
+        \footnotesize\qquad%
+        \href{\myvideo}{\color{gold(metallic)}\textbf{Vidéo} $\blacksquare$}%
+      }}%
+      \hfill{%
+        \scriptsize\texttt{[#1]}}%
+        \vspace{2mm}%
+        \hrule%
+        \vspace*{7mm}%
+      }%
+\newcommand{\indication}[1]{\hypertarget{ind7:#1}{}\label{ind7:#1}{\bf \color{titlepagecolor} Indication pour \hyperlink{exo7:#1}{\color{titlepagecolor}l'exercice \ref{exo7:#1} $\blacktriangle$}}\vspace{2mm}\par}
+\newcommand{\finindication}{\vspace{1mm}\hrule\vspace*{7mm}}
+\newcommand{\correction}[1]{\hypertarget{cor7:#1}{}\label{cor7:#1}{\bf \color{cadmiumgreen} Correction de \hyperlink{exo7:#1}{{\color{cadmiumgreen}l'exercice \ref{exo7:#1} $\blacktriangle$}}}\vspace{2mm}\par}
+\newcommand{\fincorrection}{\vspace{2mm}\hrule\vspace*{7mm}}
+\newcommand{\finenonces}{\newpage}
+\newcommand{\finindications}{\newpage}
+\newcommand{\fiche}[1]{} \newcommand{\finfiche}{}
+%\newcommand{\titre}[1]{\centerline{\large \bf #1}}
+\newcommand{\addcommand}[1]{}
+% variable myvideo : 0 no video, otherwise youtube reference
+\newcommand{\video}[1]{\def\myvideo{#1}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\backgroundsetup{
+  pages=all,
+  %firstpage=true,
+  placement=top,
+  contents={\includegraphics[scale=0.3]{figures/estaca-isae.pdf}},
+  color=black,
+  angle=0,
+  opacity=0.8,
+  scale=0.2,
+  %position=current page.north,
+  %anchor=top,
+  %nodeanchor=center,
+  hshift=800pt,
+  vshift=-140pt,
+}
+
+
+
+
+
+\newcommand{\makelivret}[1]{
+\newpage
+%\renewcommand{\headrulewidth}{0pt}
+%\vspace*{-35mm}\hspace*{-24mm}
+%\begin{tikzpicture}
+%  \draw[black!60] (3.8, 0) -- (3.8, 29.8);
+%	\foreach \y in {1.8, ..., 26.1} {
+%	 \draw[black!40] (0, \y) -- (22, \y);
+%	}
+%\end{tikzpicture}
+\foreach \n in{1,...,#1}  {
+\newpage
+\renewcommand{\headrulewidth}{0pt}
+\vspace*{-34mm}\hspace*{-24mm}
+\begin{tikzpicture}
+  \draw[black!60] (3.8, 0) -- (3.8, 29.68);
+	\foreach \y in {1.8, ..., 26.1} {
+	 \draw[black!40] (0, \y) -- (22, \y);
+	}
+\end{tikzpicture}\n
+}
+\newpage \
+}

@@ -1,0 +1,27 @@
+\begin{tikzpicture}[scale=1,cap=round]
+  % Styles
+  \tikzstyle{axes}=[]
+  \tikzstyle{important line}=[very thick]
+  \tikzstyle{information text}=[rounded corners,fill=red!10,inner sep=1ex]
+
+  % Axes + vecteurs unitaires
+  \draw[->] (-5,0) -- (5,0);
+  \draw[->] (0,0) -- (1,0) node[above] {$\vec{u}$};
+  \draw[->] (0,-5) -- (0,5);
+  \draw[->] (0,0) -- (0,1) node[left] {$\vec{v}$};
+  \filldraw[black] (0,0) circle (1pt) node[above left]{$O$};
+
+  % M1(z)
+  \filldraw[black] (-3,4) circle (1pt) node[above left]{$M_1(z_1)$};
+
+  % M2(z2)
+  \filldraw[black] (4,1) circle (1pt) node[above right]{$M_2(z_2)$};
+
+  % M3(z3)
+  \filldraw[black] (-4,-3) circle (1pt) node[below left]{$M_3(z_3)$};
+
+  % Construction
+  \draw[-,dashed,red] (-3,4) -- (4,1);
+  \draw[-,dashed,blue] (4,1) -- (-4,-3);
+  \draw[-,dashed,green] (-4,-3) -- (-3,4);
+\end{tikzpicture}

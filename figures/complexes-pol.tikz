@@ -1,0 +1,28 @@
+\begin{tikzpicture}[scale=1,cap=round]
+  \usetikzlibrary{calc}
+
+  % Styles
+  \tikzstyle{axes}=[]
+  \tikzstyle{important line}=[very thick]
+  \tikzstyle{information text}=[rounded corners,fill=red!10,inner sep=1ex]
+
+  % Axes + vecteurs unitaires
+  \draw[->] (-1,0) -- (8,0);
+  \draw[->] (0,0) -- (1,0) node[below] {$\vec{u}$};
+  \draw[->] (0,-1) -- (0,4);
+  \draw[->] (0,0) -- (0,1) node[left] {$\vec{v}$};
+  \filldraw[black] (0,0) circle (1pt) node[below left]{$O$};
+
+  % M(z)
+  \filldraw[black] (5,3) circle (1pt) node[above right]{$M(z)$};
+  \draw[-,dashed] (0,3) -- (5,3);
+  \draw[-,dashed] (5,0) -- (5,3);
+  \filldraw[black] (0,3) circle (0pt) node[above left]{$b$};
+  \filldraw[black] (5,0) circle (0pt) node[below right]{$a$};
+  \draw[red,-,dashed] (0,0) -- (5,3);
+  \filldraw[red] (2.5,1.5) circle (0pt) node[above left]{$\abs{z}=r$};
+
+  % Arc
+  \draw [->] ($(0,0)+(2.0,0)$) arc (0:30:2.0);
+  \filldraw[black] (2,0.5) circle (0pt) node[right]{$arg(z)=\theta$};
+\end{tikzpicture}
